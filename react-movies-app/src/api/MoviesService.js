@@ -7,7 +7,7 @@ export class MoviesService{
     }
 
     //Busca do detalhes de um filmes
-    static getMoviesDetail(movieId){
+    static getMovieDetail(movieId){
         return api.get(`movie/${movieId}`)
     }
 }
