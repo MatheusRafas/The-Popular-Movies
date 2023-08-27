@@ -6,10 +6,9 @@ export  function RootLayout() {
         <>
             <header className={styles.header}>
                 <h1>Bem-Vindo á aplicação de Filmes Populares</h1>
+                
                 <ul>
-                    <li>
-                    <Link to={"/"}>Home</Link>
-                    </li>
+                    <li><Link to={"/"}>Home</Link></li>
                 </ul>
             </header>
 
