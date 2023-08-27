@@ -17,7 +17,7 @@ export  function RootLayout() {
             <Outlet/>
             {/* */}
             
-            <footer>
+            <footer className={styles.footer}>
                 Copyright 2023. Todos os direiros reservados
             </footer>
         </>
