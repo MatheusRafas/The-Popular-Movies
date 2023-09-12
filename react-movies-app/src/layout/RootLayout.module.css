@@ -15,6 +15,11 @@
     list-style-type: none;
 }
 
+.header li{
+    margin: 15px;
+}
+
+
 .header a{
     color: white;
     background-color:#8C8C8C;

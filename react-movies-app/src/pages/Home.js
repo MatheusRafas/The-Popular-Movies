@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MoviesList } from "../components/MoviesList/MoviesList";
-import { MoviesService } from "../api/MoviesService";
+import { SearchMovies } from "../components/SearchMovies/SearchMovies";
+import { useGetMovies } from "../hooks/useGetMovies";
+import { useSearchMovieByTitle } from "../hooks/useSearchMovieByTitle";
 
 export function Home(){
-    const [movies, setMovies] = useState([]);
-    
-    /*async function fetchMovies() {
-        const {data} = await MoviesServices.getMovies();
-        setMovies(data.results)
+    const [searchQuery, setSearchQuery] = useState("");
+    const movies = useGetMovies();
+    const searchResults = useSearchMovieByTitle(searchQuery);
+
+    function handleOnSearch(movieTitle) {
+        setSearchQuery(movieTitle);
     }
-
-    useEffect(() => {
-        fetchMovies();
-    }, [])*/
-
-    useEffect(() => {
-        MoviesService.getMovies()
-        .then(({data}) => setMovies(data.results));
-    }, [])
-
+    
     return(
         <>
-            <MoviesList movies={movies}/>
+            <SearchMovies onSearch={handleOnSearch}/>
+            <MoviesList movies={searchResults.length > 0 ? searchResults : movies}/>
         </>
-    )
+    );
 }

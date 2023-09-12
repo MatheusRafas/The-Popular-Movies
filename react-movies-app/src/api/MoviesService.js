@@ -10,4 +10,12 @@ export class MoviesService{
     static getMovieDetail(movieId){
         return api.get(`movie/${movieId}`)
     }
+
+    static searchByMovieTitle(movieTitle){
+        return api.get("search/movie", {
+            params: {
+                query: movieTitle,
+            }
+        });
+    }
 }

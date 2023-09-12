@@ -9,6 +9,7 @@ export  function RootLayout() {
                 
                 <ul>
                     <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/favorites"}>Filmes Favoritos</Link></li>
                 </ul>
             </header>
 

@@ -1,17 +1,11 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MoviesService } from "../../api/MoviesService"
 import { MovieImage } from "../../components/MovieImage/MovieImage";
 import styles from "./MovieDetails.module.css";
+import { useGetMovieDetail } from "../../hooks/useGetMovieDetail";
 
 export function MovieDetails(){
-    const [movie, setMovie] = useState({})
-    const params = useParams();
-
-    useEffect(() => {
-        MoviesService.getMovieDetail(params.movieId)
-            .then(({data}) => setMovie(data))
-    }, [params.movieId])
+    const { movieId } = useParams();
+    const movie = useGetMovieDetail(movieId)
     
     return (
         <article className={styles.movie}>
