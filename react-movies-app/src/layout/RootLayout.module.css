@@ -7,6 +7,27 @@
     
 }
 
+.header ul {    
+    list-style: none;
+}
+
+.header ul li { 
+    display: inline-block;    
+    margin-right: 10px;
+}
+
+.header ul li a {    
+    display: inline-block;    
+    background: gray;   
+    color: white;    
+    padding: 5px 10px;    
+    text-decoration: none;
+}
+
+.header ul li a:hover {    
+    background: white;
+}
+
 .header h1{
     margin: 0;
 }

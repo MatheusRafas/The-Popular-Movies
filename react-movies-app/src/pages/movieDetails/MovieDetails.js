@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { MovieImage } from "../../components/MovieImage/MovieImage";
 import styles from "./MovieDetails.module.css";
 import { useGetMovieDetail } from "../../hooks/useGetMovieDetail";
+import { MovieRecommendations } from "../../components/MovieRecommendations/MovieRecommendations";
 
 export function MovieDetails(){
     const { movieId } = useParams();
@@ -9,14 +10,18 @@ export function MovieDetails(){
     
     return (
         <article className={styles.movie}>
-            <MovieImage path={movie.poster_path} size={500}/>
-            <div className={styles.movieInfo}>
-                <h1>{movie.title}</h1>
+            <section>
+                <MovieImage path={movie.poster_path} size={500}/>
+                <div className={styles.movieInfo}>
+                    <h1>{movie.title}</h1>
                 
-                <div className={styles.movieDescription}>
-                    {movie.overview}
+                    <div className={styles.movieDescription}>
+                        {movie.overview}
+                    </div>
                 </div>
-            </div>
+            </section>
+            
+            <MovieRecommendations movieId={movieId}/>
         </article>
     )
 }
